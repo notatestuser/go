@@ -5,11 +5,9 @@
 #include "_cgo_export.h"
 
 void issue46893() {
-    GoInt a = 0;
-    GoString s;
-    s.p = "test";
-    s.n = 4;
+    int32_t panicker = new_panicker_PanickerImpl();
+    unsigned char* d = panicker_getCNByteSlice();
     for (int i = 0; i < 10000000; i++) {
-        goPanicIssue(&a, s);
+        proxypanicker_PanickerImpl_Panic(panicker, d);
     }
 }
