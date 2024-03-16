@@ -4,10 +4,30 @@
 
 package issue46893
 
+// Go support functions for Objective-C. Note that this
+// file is copied into and compiled with the generated
+// bindings.
+
+/*
+#cgo CFLAGS: -x objective-c -fobjc-arc -fmodules -fblocks -Werror
+#cgo LDFLAGS: -framework Foundation
+
+#include <stdint.h>
+#include <stdlib.h>
+#include "seq.h"
+*/
 import "C"
+
 import (
 	"unsafe"
 )
+
+// DestroyRef is called by Objective-C to inform Go it is done with a reference.
+//
+//export DestroyRef
+func DestroyRef(refnum C.int32_t) {
+	Delete(int32(refnum))
+}
 
 // encodeString copies a Go string and returns it as a nstring.
 func encodeString(s string) C.nstring {

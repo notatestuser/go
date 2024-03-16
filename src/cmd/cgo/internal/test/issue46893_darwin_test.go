@@ -4,20 +4,14 @@
 
 //go:build cgo
 
-package issue46893
+package cgotest
 
 import (
 	"testing"
+
+	"cmd/cgo/internal/test/issue46893"
 )
 
-/*
-#cgo CFLAGS: -x objective-c -fmodules
-#cgo LDFLAGS: -framework Foundation
-
-void issue46893(void);
-*/
-import "C"
-
-func Test(t *testing.T) {
-	C.issue46893()
+func Test46893(t *testing.T) {
+	issue46893.Test(t)
 }

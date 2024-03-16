@@ -1,13 +1,9 @@
-// Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+package issue46893
 
-package seq
-
-//#cgo LDFLAGS: -llog
-//#include <android/log.h>
-//#include <string.h>
-//import "C"
+// #cgo LDFLAGS: -llog
+// #include <android/log.h>
+// #include <string.h>
+// import "C"
 
 import (
 	"fmt"
